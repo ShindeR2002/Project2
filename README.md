@@ -203,5 +203,3 @@ This project delivers a high-fidelity **Prognostic Health Management (PHM)** sys
 * **Analytical Rigor:** Verified system reliability through automated stress-testing, ensuring performance in "noisy" real-world operational environments.
 * **Strategic Data Science:** Prioritized business outcomes by translating model probabilities into measurable ROI and maintenance cost-savings.
 
-
-
