@@ -1,4 +1,4 @@
-# Jet Engine Reliability Intelligence: Deep LSTM Framework for Failure Prognostics & ROI Optimization [![Live Dashboard](https://img.shields.io/badge/Live-Interactive%20Dashboard-success)](https://wvmfc253epaqbjfoaxxcfl.streamlit.app/)
+﻿# Jet Engine Reliability Intelligence: Deep LSTM Framework for Failure Prognostics & ROI Optimization [![Live Dashboard](https://img.shields.io/badge/Live-Interactive%20Dashboard-success)](https://wvmfc253epaqbjfoaxxcfl.streamlit.app/)
 
 
 > **Developing a temporal deep learning system to predict maintenance requirements and maximize operational ROI for high-value aerospace assets.**
@@ -12,7 +12,7 @@
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-purple)
 ![Domain](https://img.shields.io/badge/Domain-Predictive%20Maintenance-red)
 ![Focus](https://img.shields.io/badge/Focus-Risk%20Analytics-blueviolet)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Status](https://img.shields.io/badge/Status-Cloud%20Deployed-brightgreen)
 
 
 ## Project Overview
@@ -159,16 +159,16 @@ To bridge the gap between Data Science and Fleet Operations, an interactive dash
 * **Risk-Derived Survival Projection:** View risk-derived survival projections based on the model's predicted critical-risk probability.
 <img width="1917" height="904" alt="Screenshot 2026-01-27 225642" src="https://github.com/user-attachments/assets/c377f085-8505-48e5-82b3-4f63678eda1c" />
 
-🔗 **Live Dashboard:** https://wvmfc253epaqbjfoaxxcfl.streamlit.app/
+**Live Dashboard:** https://wvmfc253epaqbjfoaxxcfl.streamlit.app/
 
 
 
 
 ### **3. Lead Indicator Discovery & XAI**
-Using the `explain_risk_drivers.py` module, we identified that degradation is most visible in **static pressure leads**. The model identifies these signatures approximately **30-35 cycles** before potential failure, providing a significant safety buffer for maintenance logistics.
+Using the `explain_risk_drivers.py` module, feature-importance analysis highlighted **static pressure sensors**, particularly **S11** and **S12**, as important indicators associated with degradation. These results provide interpretable supporting evidence for the degradation patterns observed during exploratory analysis.
 
 ### **4. System Robustness (Stress Testing)**
-Verified through the `stress_test.py` module, the engine maintains a positive ROI even when sensor telemetry is subjected to **1.2σ Gaussian noise**. This ensures the system remains reliable in real-world environments where sensor drift and signal noise are frequent.
+Verified through the `stress_test.py` module using increasing Gaussian noise levels of **0, 0.1, 0.5, 1.0, and 2.0**. The experiment evaluates how model behavior changes as telemetry noise increases, providing a robustness check under degraded sensor conditions.
 
 ![Stress Test Results](stress_test_results.png)
 
@@ -255,7 +255,7 @@ While the current system provides high predictive accuracy and significant ROI, 
 ### **Current Limitations**
 * **Stationary Operating Regimes:** The model is currently optimized for the FD001 dataset, which assumes a single flight regime. In real-world aviation, variations in altitude and Mach number create multi-modal degradation patterns that require regime-specific normalization.
 * **Binary Risk Horizon:** The system classifies risk within a fixed 30-cycle window. While effective for immediate scheduling, it does not yet provide a continuous **Remaining Useful Life (RUL)** regression estimate for long-term inventory planning.
-* **Data Quality Dependency:** The model currently expects the 18 features used during training to be available. Real-world sensor dropouts require a robust imputation strategy to maintain prediction stability without retraining. Real-world sensor dropouts require a robust imputation strategy to maintain prediction stability without retraining.
+* **Data Quality Dependency:** The model currently expects the 18 features used during training to be available. Real-world sensor dropouts require a robust imputation strategy to maintain prediction stability without retraining.
 
 ### **Future Roadmap**
 * **Transition to RUL Regression:** Evolve the architecture from a binary classifier to a **Time-to-Failure (TTF) Regressor** to provide probabilistic maintenance calendars rather than binary alerts.
@@ -276,4 +276,3 @@ This project delivers an end-to-end **Prognostic Health Management (PHM)** workf
 * **Deep Learning Expertise:** Engineered temporal LSTM models to capture degradation patterns in multivariate engine telemetry.
 * **Analytical Rigor:** Evaluated model behavior under increasing telemetry noise through automated stress testing.
 * **Strategic Data Science:** Translated model risk probabilities into simulated maintenance economics and decision-support metrics.
-
